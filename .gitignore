@@ -1,0 +1,37 @@
+# Dependencias
+/node_modules
+
+# Build
+/dist
+/out-tsc
+/.angular/cache
+
+# Firebase
+/.firebase
+firebase-debug.log
+firestore-debug.log
+.firebaserc.local
+
+
+# Entornos con credenciales reales (versionar solo el template)
+/src/environments/environment.ts
+/src/environments/environment.prod.ts
+!/src/environments/environment.template.ts
+
+# IDEs
+/.vscode/*
+!/.vscode/extensions.json
+/.idea
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+
+
+/.claude/*
+/.agents/*

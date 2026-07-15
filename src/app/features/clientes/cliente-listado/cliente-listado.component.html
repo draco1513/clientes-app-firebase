@@ -1,0 +1,69 @@
+<div class="page-container">
+  <app-cliente-estadisticas [estadisticas]="estadisticas"></app-cliente-estadisticas>
+
+  <div class="encabezado-listado">
+    <h2>Clientes</h2>
+    <button mat-raised-button color="primary" routerLink="/clientes/nuevo">
+      <mat-icon>add</mat-icon>
+      Nuevo cliente
+    </button>
+  </div>
+
+  <form [formGroup]="filtroForm" class="form-field-row filtros">
+    <mat-form-field appearance="outline">
+      <mat-label>Buscar por nombre o apellido</mat-label>
+      <input matInput formControlName="texto" />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Edad mínima</mat-label>
+      <input matInput type="number" formControlName="edadMinima" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Edad máxima</mat-label>
+      <input matInput type="number" formControlName="edadMaxima" />
+    </mat-form-field>
+
+    <button mat-button type="button" (click)="limpiarFiltros()">Limpiar</button>
+  </form>
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2 full-width">
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+      <td mat-cell *matCellDef="let cliente">{{ cliente.nombre }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="apellido">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido</th>
+      <td mat-cell *matCellDef="let cliente">{{ cliente.apellido }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="edad">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Edad</th>
+      <td mat-cell *matCellDef="let cliente">{{ cliente.edad }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fechaNacimiento">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de nacimiento</th>
+      <td mat-cell *matCellDef="let cliente">{{ cliente.fechaNacimiento | fechaNacimiento }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let cliente">
+        <button mat-icon-button color="warn" (click)="eliminar(cliente)" aria-label="Eliminar cliente">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+  </table>
+
+  <p *ngIf="dataSource.data.length === 0" class="sin-resultados">
+    No hay clientes que coincidan con los filtros aplicados.
+  </p>
+</div>

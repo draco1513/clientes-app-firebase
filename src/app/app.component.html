@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <span>Gestión de Clientes</span>
+  <span class="spacer"></span>
+  <ng-container *ngIf="usuario$ | async as usuario">
+    <span class="usuario-email">{{ usuario.email }}</span>
+    <button mat-icon-button (click)="cerrarSesion()" aria-label="Cerrar sesión">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </ng-container>
+</mat-toolbar>
+
+<main>
+  <router-outlet></router-outlet>
+</main>

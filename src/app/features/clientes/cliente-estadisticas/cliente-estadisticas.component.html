@@ -1,0 +1,16 @@
+<div class="estadisticas-grid">
+  <mat-card class="estadistica-card">
+    <span class="valor">{{ estadisticas.cantidad }}</span>
+    <span class="etiqueta">Clientes registrados</span>
+  </mat-card>
+
+  <mat-card class="estadistica-card">
+    <span class="valor">{{ estadisticas.promedio | number: '1.1-1' }}</span>
+    <span class="etiqueta">Promedio de edad</span>
+  </mat-card>
+
+  <mat-card class="estadistica-card">
+    <span class="valor">{{ estadisticas.desviacionEstandar | number: '1.1-1' }}</span>
+    <span class="etiqueta">Desviación estándar</span>
+  </mat-card>
+</div>

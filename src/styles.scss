@@ -1,0 +1,30 @@
+/* Estilos globales de la aplicación */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.form-field-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  > * {
+    flex: 1 1 240px;
+  }
+}
+
+.mat-mdc-card {
+  margin-bottom: 24px;
+}
